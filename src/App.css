@@ -1,0 +1,190 @@
+body {
+  background-color: #dcdcdc;
+}
+.heading {
+  z-index: 99;
+  height: 50px;
+  background-color: cadetblue;
+}
+form {
+  border: 3px solid #f1f1f1;
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  position: fixed;
+  z-index: 9999;
+}
+.reg {
+  background-color: red;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.succ {
+  background-color: #008b8b;
+  color: white;
+  padding: 5px 8px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+.back {
+  background-color: blue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+.log {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+img.avatar {
+  width: 110px;
+  border-radius: 50%;
+  height: 110px;
+}
+.body {
+  position: relative;
+  height: 90vh;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.search {
+  border-radius: 5;
+  margin-left: 5px;
+  cursor: pointer;
+  background-color: cadetblue;
+  border: none;
+  padding: 5px 5px;
+  margin-top: 25px;
+  align-self: center;
+}
+.search:hover {
+  background-color: green;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.input-box {
+  text-align: center;
+  margin-top: 25px;
+  border-radius: 50px;
+  padding: 5px 5px;
+  border: none;
+  box-shadow: inset 0 0 5px black;
+}
+
+/* .modal {
+  position: absolute;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #888;
+  width: 40%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.modal-body {
+  margin-top: 15px;
+}
+.modal-footer {
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+  margin-top: 15px;
+  margin-bottom: 15px;
+} */
+.loginInput {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.container {
+  padding: 16px;
+}
+
+.userdiv {
+  background-color: #f8f8ff;
+  padding: 6px;
+  margin-top: 15px;
+  display: grid;
+  border-radius: 15px;
+  grid-template-columns: auto auto auto;
+  height: auto;
+  grid-gap: 10px;
+}
+.userdivTodo {
+  background-color: #f8f8ff;
+  padding: 6px;
+  margin-top: 15px;
+  display: grid;
+  border-radius: 15px;
+  grid-template-columns: auto auto auto auto;
+  height: auto;
+  grid-gap: 10px;
+}
+.indCard {
+  height: auto;
+  padding: 12px;
+  background-color: #bdb76b;
+  border-radius: 15px;
+}
+
+.charts {
+  background-color: #f5f5dc;
+  display: flex;
+  height: auto;
+  flex-direction: row;
+}
+
+.normal-button {
+  border: none;
+  padding: 5px;
+  margin-top: 5px;
+  margin-left: 10px;
+}

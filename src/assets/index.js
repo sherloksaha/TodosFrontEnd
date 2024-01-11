@@ -1,0 +1,1 @@
+export {avatar} from "./download.png"
