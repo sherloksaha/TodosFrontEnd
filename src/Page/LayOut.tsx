@@ -16,8 +16,20 @@ export const LayOut = () => {
       console.log("error", error);
     }
   };
-
+  const CheckExpToken = async () => {
+    try {
+      const res = await apiClient.get("/check-token");
+      if(res.data.msg==="Token_Expired") {
+        localStorage.removeItem("userData");
+        nav("/login");
+        return
+      }
+    } catch (e) {
+      console.log("e", e);
+    }
+  };
   useEffect(() => {
+    CheckExpToken();
     if (!token) {
       nav("/login");
     } else {
@@ -32,9 +44,11 @@ export const LayOut = () => {
       }}
     >
       <Header />
-      <div style={{
-        paddingTop:"60px"
-      }}>
+      <div
+        style={{
+          paddingTop: "60px",
+        }}
+      >
         <Outlet />
       </div>
     </div>
