@@ -38,7 +38,7 @@ export const Home = () => {
       console.log(e)
     }
   }
-  
+  console.log("I am in HOOOOMMMEEEEEEEE ADMIN")
   useEffect(() => {
     if(countRef>0){
       document.body.scrollTop = 0;

@@ -5,17 +5,8 @@ import { AuthContext } from "../context/authContext";
 import { apiClient } from "../config/apiConfig";
 
 export const LayOut = () => {
-  const { token, setCurrentUser, currentUser } = useContext(AuthContext);
+  const {token,currentUser,setCurrentUser} = useContext(AuthContext);
   const nav = useNavigate();
-
-  const getUserDetails = async () => {
-    try {
-      const data = await apiClient.get("/user-details");
-      setCurrentUser(data?.data?.data);
-    } catch (error) {
-      console.log("error", error);
-    }
-  };
   const CheckExpToken = async () => {
     try {
       const res = await apiClient.get("/check-token");
@@ -28,13 +19,15 @@ export const LayOut = () => {
       console.log("e", e);
     }
   };
+
+  
   useEffect(() => {
+   
     CheckExpToken();
     if (!token) {
+      console.log("rerererererer")
       nav("/login");
-    } else {
-      getUserDetails();
-    }
+    } 
   }, [token]);
   return (
     <div

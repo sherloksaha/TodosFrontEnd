@@ -3,10 +3,11 @@ import { AiOutlineLogout } from "react-icons/ai";
 import { AuthContext } from "../context/authContext";
 import { Dropdown } from "react-bootstrap";
 import { CustomDropDown } from "./CustomDropDown";
+import { useNavigate } from "react-router-dom";
 export const Header = () => {
+  const nav=useNavigate()
   const { setCurrentUser, currentUser, setToken } = useContext(AuthContext);
-
-  return (
+  return ( 
     <header className="App-header">
       <div>
         <p
@@ -28,28 +29,7 @@ export const Header = () => {
         }}
       >
         <div style={{ marginTop: "4px", cursor: "pointer" }}>
-          {/* <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              {currentUser?.Name||"Null"}
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              
-              <Dropdown.Item href="#/action-1">
-                User Type : {currentUser?.isAdmin ? "Admin" : "User"}
-              </Dropdown.Item>
-              <Dropdown.Item
-                href="#/action-3"
-                onClick={() => {
-                  localStorage.removeItem("userData");
-                  setToken("");
-                  setCurrentUser("");
-                }}
-              >
-                LogOut
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown> */}
+          
           <CustomDropDown
             dropDownName={currentUser?.Name || "Null"}
             DropDownKeys={[
@@ -62,6 +42,7 @@ export const Header = () => {
                   localStorage.removeItem("userData");
                   setToken("");
                   setCurrentUser("");
+                  nav("/")
                 },
               },
             ]}

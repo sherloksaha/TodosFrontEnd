@@ -172,7 +172,10 @@ img.avatar {
   height: auto;
   padding: 12px;
   background-color: #bdb76b;
-  border-radius: 15px;
+  position: relative;
+  width: 300px;
+  height: 250px;
+  overflow-y: scroll;
 }
 
 .charts {
