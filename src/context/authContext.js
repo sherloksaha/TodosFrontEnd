@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { apiClient } from "../config/apiConfig";
 import { toast } from "react-toastify";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext();
 
@@ -30,9 +31,21 @@ export const AuthContextProvider = ({ children }) => {
       toast.error("No User");
     }
   };
+  const getUserDetails = async () => {
+    try {
+      const data = await apiClient.get("/user-details");
+      setCurrentUser(data?.data?.data);
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
   useEffect(() => {
-    setToken(localStorage.getItem("userData") || "");
-  }, [currentUser]);
+    if (!token) setToken(localStorage.getItem("userData") || "");
+
+    if (!currentUser.uid && token) {
+      getUserDetails();
+    }
+  }, [token]);
   return (
     <AuthContext.Provider
       value={{

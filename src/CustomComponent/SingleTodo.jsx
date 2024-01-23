@@ -11,46 +11,34 @@ export const SingleTodo = ({ single, setShow, ToDosValues, show }) => {
     <div className="indCard">
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "auto auto",
+          display: "flex",
+          // maxWidth:"200px",
+          width:"100%",
+          justifyContent:'space-between',
+        
         }}
       >
         <div
           style={{
+            display:'flex',
+            flexDirection:'column',
+            flexWrap:'wrap',
             fontSize: "12px",
+            
           }}
         >
-          <p>Title : {single?.title}</p>
-          <p>Description :{single?.desc}</p>
+          <p><b>Title : </b>{single?.title}</p>
+          <p><span><b>Description :</b></span> { single?.desc}</p>
           <p>
-            Create Date :{" "}
+            <b>Create Date :</b>{" "}
             <b>{moment(single?.createdAt).format("YYYY-MM-DD HH:mm")}</b>
           </p>
           <p>
-            Completion Date :{" "}
+            <b>Completion Date :</b>{" "}
             <b>{moment(single?.isFinished).format("YYYY-MM-DD")}</b>
           </p>
         </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "15px",
-          }}
-        >
-          <AiFillDelete
-            style={{ cursor: "pointer" }}
-            onClick={() => setShow(true)}
-            data-toggle="tooltip"
-            title="Delete Todo"
-          />
-          <FiCheckSquare
-            style={{ cursor: "pointer" }}
-            onClick={() => setShowComplete(true)}
-            data-toggle="tooltip"
-            title="Mark as Complete"
-          />
-        </div>
+        
         <UserView
           show={complete}
           handleClose={() => setShowComplete(false)}
@@ -70,6 +58,30 @@ export const SingleTodo = ({ single, setShow, ToDosValues, show }) => {
           CallUsers={ToDosValues}
         />
       </div>
+      <div
+          style={{
+            position:'absolute',
+            display: "flex",
+            justifyContent: "center",
+            gap: "15px",
+            top:"12px",
+            right:"15px",
+            float:"right"
+          }}
+        >
+          <AiFillDelete
+            style={{ cursor: "pointer" }}
+            onClick={() => setShow(true)}
+            data-toggle="tooltip"
+            title="Delete Todo"
+          />
+          <FiCheckSquare
+            style={{ cursor: "pointer" }}
+            onClick={() => setShowComplete(true)}
+            data-toggle="tooltip"
+            title="Mark as Complete"
+          />
+        </div>
     </div>
   );
 };

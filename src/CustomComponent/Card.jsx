@@ -35,6 +35,8 @@ export const Card = ({ data, id, CallUsers }) => {
             {data?.Todos?.filter((e) => e?.isActive == false)?.length || 0}
           </p>
           <p>User Type : {data?.isAdmin ? "Admin" : "User"}</p>
+          <p>Email : {data?.email}</p>
+          <p>User Name : {data?.username}</p>
           <Badge bg={data?.isActive ? "success" : "danger"}>
             {data?.isActive ? "Active" : "In-Active"}
           </Badge>

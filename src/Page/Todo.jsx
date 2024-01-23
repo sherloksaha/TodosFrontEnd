@@ -12,7 +12,7 @@ export const Todo = () => {
   const [deleteModal, setDeleteModal] = useState(false);
   const { currentUser } = useContext(AuthContext);
   const [page, setPage] = useState(1);
-  const [take] = useState(3);
+  const [take] = useState(8);
   const [totalLength, setTotalLength] = useState(0);
   const [isActive, setIsAvtive] = useState(true);
   const [isForUser, setIsForUser] = useState(false);
@@ -20,6 +20,7 @@ export const Todo = () => {
   const nav = useNavigate();
   const [Todo, setTodos] = useState([]);
   const PagiNation = usePaginate(page, Todo, setPage, totalLength);
+  console.log("I am in HOOOOMMMEEEEEEEE USSSSEEEERRRRRRRRR")
 
   const ToDosValues = async () => {
     const activeStat = {
@@ -39,10 +40,10 @@ export const Todo = () => {
       console.log(e);
     }
   };
-
+  
   useEffect(() => {
     if (id || currentUser?.id) ToDosValues();
-  }, [isActive, currentUser?.id]);
+  }, [isActive, currentUser?.id,page]);
 
   return (
     <>

@@ -1,5 +1,10 @@
 import React, { useContext } from "react";
-import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+  useNavigate,
+} from "react-router-dom";
 import { LogIn } from "./LogIn";
 import { Home } from "./Page/Home";
 import { Register } from "./Page/Register";
@@ -9,18 +14,19 @@ import { CreateUser } from "./Page/CreateUser";
 import { CreateTask } from "./Page/CreateTask";
 import { ResetPass } from "./ResetPass";
 import { AuthContext } from "./context/authContext";
+import { Kk } from "./Page/Kk";
+import { Jj } from "./Page/JJ";
 
 const PermissionAccess = ({ children, currentUser }) => {
-  if(currentUser?.isAdmin){
-    return children
+  if (currentUser?.isAdmin) {
+    return children;
+  } else {
+    return <Navigate to="*" replace />;
   }
-  else{
-    return <Navigate to="*" replace/>
-  }
- 
 };
 export const App = () => {
   const { currentUser } = useContext(AuthContext);
+
   const router = createBrowserRouter([
     {
       path: "/login",
@@ -47,11 +53,19 @@ export const App = () => {
               path: "/todo/:id",
               element: <Todo />,
             },
+            {
+              path: "/k",
+              element: <Kk />,
+            },
           ]
         : [
             {
-              path: "/",
+              path: "/home",
               element: <Todo />,
+            },
+            {
+              path: "/k",
+              element: <Jj/>,
             },
           ],
     },
